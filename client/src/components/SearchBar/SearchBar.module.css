@@ -1,0 +1,109 @@
+.divSearchBar{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 15px;
+}
+.inputCss {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	border: 1px solid #000;
+	border-radius: 5px 0 0 5px;
+	box-shadow: 0 2px 0 #000;
+	color: #6B6B6B;
+	display: block;
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	height: 26px;
+	margin: 0;
+	padding: 0 10px;
+	width: 75%;
+	-webkit-border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	-ms-border-radius: 5px 0 0 5px;
+	-o-border-radius: 5px 0 0 5px;
+}
+
+.inputCss {
+	line-height: 40px;
+}
+
+.inputCss::-webkit-input-placeholder {
+   color: #888;
+}
+
+.inputCss:-moz-placeholder {
+   color: #888;
+}
+
+.inputCss:focus {
+	animation: glow 800ms ease-out infinite alternate;
+	background: #222922;
+	background: linear-gradient(#333933, #222922);
+	border-color: #25C9BF;
+	box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+	color: #efe;
+	outline: none;
+}
+
+.inputCss:focus::-webkit-input-placeholder { 
+	color: #efe;
+}
+
+.inputCss:focus:-moz-placeholder {
+	color: #efe;
+}
+
+.searchButton {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	box-sizing: border-box;
+	border: 1px solid #000;
+	border-left-color: #222;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 2px 0 #000;
+	color: #e2e2e2;
+	display: block;
+	float: left;
+	font-family: 'Cabin', helvetica, arial, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	height: 27px;
+	line-height: 40px;
+	position: relative;
+	text-shadow: 0 -1px 0 #000;
+	width: 65px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}	
+
+.searchButton:hover,
+.searchButton:focus {
+	animation: glow 800ms ease-out infinite alternate;
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	color: #a7eee9;
+	outline: none;
+}
+
+.searchButton:active {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+	top: 1px;
+}
+
+@keyframes glow {
+    0% {
+		border-color: #25C9BF;
+		box-shadow: 0 0 5px rgba(37, 201, 191, 0.2), inset 0 0 5px rgba(37, 201, 191, 0.1), 0 2px 0 #000;
+	  }
+	  100% {
+		border-color: #25C9BF;
+		box-shadow: 0 0 20px rgba(37, 201, 191, 0.6), inset 0 0 10px rgba(37, 201, 191, 0.4), 0 2px 0 #000;
+	  }
+}
+
