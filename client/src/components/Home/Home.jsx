@@ -21,6 +21,109 @@ const indexOfLastRecipe = currentPage * recipesPerPage;
 const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
 const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
+//!  Example Recipes
+
+const [games, setGames] = useState([
+    {
+        id: 3498,
+        title: "Grand Theft Auto V",
+        image: "https://img.redbull.com/images/c_fill,w_1200,h_600,g_auto,f_auto,q_auto/redbullcom/2015/02/15/1331705372408_2/dota-2",
+        diets: ["MOBA", "MORPG", "Action"]
+    },
+    {
+        id: 2,
+        title: "Valorant",
+        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+        diets: ["Genre 3", "Genre 4"]
+    },
+    {
+        id: 3,
+        title: "Pokemon Unite",
+        image: "https://unite.pokemon.com/images/share-fb.jpg",
+        diets: ["Genre 3", "Genre 4"]
+    },
+    {
+        id: 4,
+        title: "Pokemon Unite",
+        image: "https://unite.pokemon.com/images/share-fb.jpg",
+        diets: ["Genre 3", "Genre 4"]
+    },
+    {
+        id: 5,
+        title: "Dota 2",
+        image: "https://img.redbull.com/images/c_fill,w_1200,h_600,g_auto,f_auto,q_auto/redbullcom/2015/02/15/1331705372408_2/dota-2",
+        diets: ["Genre 1", "Genre 2"]
+      },
+      {
+        id: 6,
+        title: "Valorant",
+        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+        diets: ["Genre 3", "Genre 4"]
+      },
+      {
+        id: 7,
+        title: "Pokemon Unite",
+        image: "https://unite.pokemon.com/images/share-fb.jpg",
+        diets: ["Genre 3", "Genre 4"]
+      },
+      {
+        id: 8,
+        title: "Pokemon Unite",
+        image: "https://unite.pokemon.com/images/share-fb.jpg",
+        diets: ["Genre 3", "Genre 4"]
+      },
+      {
+        id: 9,
+        title: "Dota 2",
+        image: "https://img.redbull.com/images/c_fill,w_1200,h_600,g_auto,f_auto,q_auto/redbullcom/2015/02/15/1331705372408_2/dota-2",
+        diets: ["Genre 1", "Genre 2"]
+      },
+      {
+        id: 10,
+        title: "Valorant",
+        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+        diets: ["Genre 3", "Genre 4"]
+      },
+      {
+          id: 11,
+          title: "Pokemon Unite",
+          image: "https://unite.pokemon.com/images/share-fb.jpg",
+          diets: ["Genre 3", "Genre 4"]
+      },
+      {
+          id: 12,
+          title: "Pokemon Unite",
+          image: "https://unite.pokemon.com/images/share-fb.jpg",
+          diets: ["Genre 3", "Genre 4"]
+      },
+      {
+        id: 13,
+        title: "Dota 2",
+        image: "https://img.redbull.com/images/c_fill,w_1200,h_600,g_auto,f_auto,q_auto/redbullcom/2015/02/15/1331705372408_2/dota-2",
+        diets: ["Genre 1", "Genre 2"]
+      },
+      {
+        id: 14,
+        title: "Valorant",
+        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+        diets: ["Genre 3", "Genre 4"]
+      },
+      {
+          id: 15,
+          title: "Pokemon Unite",
+          image: "https://unite.pokemon.com/images/share-fb.jpg",
+          diets: ["Genre 3", "Genre 4"]
+      },
+      {
+          id: 16,
+          title: "Pokemon Unite",
+          image: "https://unite.pokemon.com/images/share-fb.jpg",
+          diets: ["Genre 3", "Genre 4"]
+      },
+      
+  ]);
+  const currentRecipesAux = games.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
 const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
 }
@@ -138,7 +241,7 @@ return(
                     />
                 <div className={style.gridContainer}>
                     <div className={style.gamesContainer}>
-                        {currentRecipes?.map((el) => {
+                        {currentRecipesAux?.map((el) => {
                                 return (
                                     <div>
                                         <Link to={'/home/' + el.id}>

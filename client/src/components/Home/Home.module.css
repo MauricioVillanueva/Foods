@@ -95,7 +95,7 @@ animation: glow 8s linear infinite;
 .gamesContainer{
     width: auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 45px;
     grid-column-gap: 45px;
 }
@@ -106,26 +106,31 @@ animation: glow 8s linear infinite;
     -webkit-appearance: none;
     padding: 7px 40px 7px 12px;
     width: 100%;
-    border: 1px solid #000;
+    border: none;
     border-radius: 5px;
     background: white;
     cursor: pointer;
     font-family: arial, sans-serif;
-	font-size: 12px;
-	font-weight: 400;
+    font-size: 12px;
+    font-weight: 600;
     transition: all 150ms ease;
     margin-bottom: 10px;
-    color: #6B6B6B;
+    color: #E37C00;
     appearance: none;
     outline: none;
-    background-color: #262626;
-    background-image:url('https://icons.veryicon.com/png/o/miscellaneous/simple-and-round-line-mark/down-arrow-56.png');
+    background-color: #FFEDDB;
+    background-image:
+    url('https://uploads-ssl.webflow.com/620ff835b6ec5ca49847eaf6/6217d9d931a74e3b88d664b9_down-arrow.png');
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
     background-size: 1em auto, 100%;
+    -webkit-transition: all 150ms ease;
+    -moz-transition: all 150ms ease;
+    -ms-transition: all 150ms ease;
+    -o-transition: all 150ms ease;
 }
 .titleCss{
-    color: white;
+    color: #E37C00;
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
@@ -135,7 +140,7 @@ animation: glow 8s linear infinite;
 
 .titleInfo{
     margin: 8px 0 5px 0;
-    color: white;
+    color: #E37C00;
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
