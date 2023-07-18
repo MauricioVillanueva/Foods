@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import style from './LandingPage.module.css'
+import LandingImage from './LandingImage.png'
 
 export default function LandingPage(){
     return (
@@ -9,7 +10,9 @@ export default function LandingPage(){
             <div className={style.neonText}>Fit </div>
             <div className={style.fluxText}>Flavors </div>
         </div>
-            <img src="https://cdn.dribbble.com/users/330915/screenshots/7589778/media/0fb3a9358a7716b8db20eaa6bac91041.gif" alt='Kitchen' className={style.roomImg}/>
+        <div className={style.imgDiv}>
+        <img src={LandingImage} alt='Kitchen' className={style.landingImg}/>
+        </div>
             <Link to='/home' className={style.buttonContainer}>
                 <button className={style.button}>Get Started</button>       
             </Link>

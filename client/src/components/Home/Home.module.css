@@ -1,10 +1,13 @@
+.container{ 
+    background-color: #FFFFFF;
+}
 .divButton{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: auto;
     padding: 0 55px;
-    height: 150px;
+    height: 90px;
 }
 
 .buttonContainer{
@@ -17,7 +20,7 @@
     border-radius: 50px;
     border: none;
     outline: none;
-    background: #252525;
+    background: #E37C00;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
@@ -92,12 +95,12 @@ animation: glow 8s linear infinite;
     display: flex;
     justify-content: center;
 }
-.gamesContainer{
+.recipesContainer{
     width: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 45px;
-    grid-column-gap: 45px;
+    grid-column-gap: 75px;
 }
 
 /*! FILTERS */
@@ -148,14 +151,14 @@ animation: glow 8s linear infinite;
     line-height: 14px;
 }
 
-/*! ALLVIDEOGAMES BUTTON */
+/*! ALLRECIPES BUTTON */
 .allButton{
     position: relative;
     padding: 12px 15px;
     border-radius: 50px;
     border: none;
     outline: none;
-    background: #252525;
+    background: #E37C00;
     color: #fff;
     font-size: 15px;
     font-weight: 500;
@@ -203,4 +206,8 @@ animation: glow 8s linear infinite;
     display: flex;
     justify-content: center;
     margin-top: 40px;
+}
+
+.links{
+    text-decoration: none;
 }
