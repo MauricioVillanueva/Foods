@@ -8,14 +8,12 @@ export default function Paginated({recipesPerPage, allRecipes, paginado}){
         pageNumbers.push(i);
     }
     return (
-        <nav>
-            <ul className={style.paginatedContainer}>
+            <div className={style.paginatedContainer}>
                 {pageNumbers?.map(number => (
-                    <li className={style.numberButton} key={number} onClick={() => paginado(number)}>
+                    <button type='button' className={style.numberButton} key={number} onClick={() => paginado(number)}>
                         {number}
-                    </li>
+                    </button>
                 ))}
-            </ul>
-        </nav>
+            </div>
     )
 }

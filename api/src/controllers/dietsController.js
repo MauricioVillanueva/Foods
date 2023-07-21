@@ -6,10 +6,6 @@ const getApiDiets = async () => {
     const dietsApiResponse = await axios.get(process.env.API);
     const dietsSet = new Set();
 
-    // if(dietsApiResponse[0].vegetarian){
-    //   if(!dietas.includes('vegetarian'))dietas.push('vegetarian')
-    // }
-
     dietsApiResponse.data.results.forEach((diet) => {
       diet.diets.forEach((d) => dietsSet.add(d));
     });

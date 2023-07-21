@@ -21,143 +21,143 @@ const indexOfLastRecipe = currentPage * recipesPerPage;
 const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
 const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-//!  Example Recipes
+// //!  Example Recipes
 
-const [games, setGames] = useState([
-    {
-        id: 3498,
-        title: "Cannellini Bean and Asparagus Salad with Mushrooms",
-        image: "https://spoonacular.com/recipeImages/782585-312x231.jpg",
-        diets: ["gluten free", "dairy free", "lacto ovo vegetarian", "vegan"]
-    },
-    {
-        id: 2,
-        title: "Cauliflower, Brown Rice, and Vegetable Fried Rice",
-        image: "https://spoonacular.com/recipeImages/716426-312x231.jpg",
-        diets: [
-			"gluten free",
-			"dairy free",
-			"lacto ovo vegetarian",
-			"vegan"
-		]
-    },
-    {
-        id: 3,
-        title: "Berry Banana Breakfast Smoothie",
-        image: "https://spoonacular.com/recipeImages/715497-312x231.jpg",
-        diets: [
-			"lacto ovo vegetarian"
-		]
-    },
-    {
-        id: 4,
-        title: "Red Lentil Soup with Chicken and Turnips",
-		image: "https://spoonacular.com/recipeImages/715415-312x231.jpg",
-        diets: [
-			"gluten free",
-			"dairy free"
-		]
-    },
-    {
-        id: 5,
-        title: "Asparagus and Pea Soup: Real Convenience Food",
-		image: "https://spoonacular.com/recipeImages/716406-312x231.jpg",
-        diets: [
-			"gluten free",
-			"dairy free",
-			"paleolithic",
-			"lacto ovo vegetarian",
-			"primal",
-			"vegan"
-		]
-      },
-      {
-        id: 6,
-        title: "Garlicky Kale",
-        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
-        diets: [
-			"gluten free",
-			"dairy free",
-			"paleolithic",
-			"lacto ovo vegetarian",
-			"primal",
-			"whole 30",
-			"vegan"
-		]
-      },
-      {
-        id: 7,
-        title: "Slow Cooker Beef Stew",
-		image: "https://spoonacular.com/recipeImages/644387-312x231.jpg",
-        diets: [
-			"gluten free",
-			"dairy free"
-		]
-      },
-      {
-        id: 8,
-        title: "Red Kidney Bean Jambalaya",
-		image: "https://spoonacular.com/recipeImages/715446-312x231.jpg",
-        diets: [
-			"gluten free",
-			"dairy free",
-			"lacto ovo vegetarian",
-			"vegan"
-		]
-      },
-      {
-        id: 9,
-        title: "Chicken Fajita Stuffed Bell Pepper",
-		image: "https://spoonacular.com/recipeImages/782601-312x231.jpg",
-        diets: [
-			"gluten free"
-		]
-      },
-      {
-        id: 10,
-        title: "Valorant",
-        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
-        diets: ["Genre 3", "Genre 4"]
-      },
-      {
-          id: 11,
-          title: "Pokemon Unite",
-          image: "https://unite.pokemon.com/images/share-fb.jpg",
-          diets: ["Genre 3", "Genre 4"]
-      },
-      {
-          id: 12,
-          title: "Pokemon Unite",
-          image: "https://unite.pokemon.com/images/share-fb.jpg",
-          diets: ["Genre 3", "Genre 4"]
-      },
-      {
-        id: 13,
-        title: "Dota 2",
-        image: "https://img.redbull.com/images/c_fill,w_1200,h_600,g_auto,f_auto,q_auto/redbullcom/2015/02/15/1331705372408_2/dota-2",
-        diets: ["Genre 1", "Genre 2"]
-      },
-      {
-        id: 14,
-        title: "Valorant",
-        image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
-        diets: ["Genre 3", "Genre 4"]
-      },
-      {
-          id: 15,
-          title: "Pokemon Unite",
-          image: "https://unite.pokemon.com/images/share-fb.jpg",
-          diets: ["Genre 3", "Genre 4"]
-      },
-      {
-          id: 16,
-          title: "Pokemon Unite",
-          image: "https://unite.pokemon.com/images/share-fb.jpg",
-          diets: ["Genre 3", "Genre 4"]
-      },
+// const [games, setGames] = useState([
+//     {
+//         id: 3498,
+//         title: "Cannellini Bean and Asparagus Salad with Mushrooms",
+//         image: "https://spoonacular.com/recipeImages/782585-312x231.jpg",
+//         diets: ["gluten free", "dairy free", "lacto ovo vegetarian", "vegan"]
+//     },
+//     {
+//         id: 2,
+//         title: "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+//         image: "https://spoonacular.com/recipeImages/716426-312x231.jpg",
+//         diets: [
+// 			"gluten free",
+// 			"dairy free",
+// 			"lacto ovo vegetarian",
+// 			"vegan"
+// 		]
+//     },
+//     {
+//         id: 3,
+//         title: "Berry Banana Breakfast Smoothie",
+//         image: "https://spoonacular.com/recipeImages/715497-312x231.jpg",
+//         diets: [
+// 			"lacto ovo vegetarian"
+// 		]
+//     },
+//     {
+//         id: 4,
+//         title: "Red Lentil Soup with Chicken and Turnips",
+// 		image: "https://spoonacular.com/recipeImages/715415-312x231.jpg",
+//         diets: [
+// 			"gluten free",
+// 			"dairy free"
+// 		]
+//     },
+//     {
+//         id: 5,
+//         title: "Asparagus and Pea Soup: Real Convenience Food",
+// 		image: "https://spoonacular.com/recipeImages/716406-312x231.jpg",
+//         diets: [
+// 			"gluten free",
+// 			"dairy free",
+// 			"paleolithic",
+// 			"lacto ovo vegetarian",
+// 			"primal",
+// 			"vegan"
+// 		]
+//       },
+//       {
+//         id: 6,
+//         title: "Garlicky Kale",
+//         image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+//         diets: [
+// 			"gluten free",
+// 			"dairy free",
+// 			"paleolithic",
+// 			"lacto ovo vegetarian",
+// 			"primal",
+// 			"whole 30",
+// 			"vegan"
+// 		]
+//       },
+//       {
+//         id: 7,
+//         title: "Slow Cooker Beef Stew",
+// 		image: "https://spoonacular.com/recipeImages/644387-312x231.jpg",
+//         diets: [
+// 			"gluten free",
+// 			"dairy free"
+// 		]
+//       },
+//       {
+//         id: 8,
+//         title: "Red Kidney Bean Jambalaya",
+// 		image: "https://spoonacular.com/recipeImages/715446-312x231.jpg",
+//         diets: [
+// 			"gluten free",
+// 			"dairy free",
+// 			"lacto ovo vegetarian",
+// 			"vegan"
+// 		]
+//       },
+//       {
+//         id: 9,
+//         title: "Chicken Fajita Stuffed Bell Pepper",
+// 		image: "https://spoonacular.com/recipeImages/782601-312x231.jpg",
+//         diets: [
+// 			"gluten free"
+// 		]
+//       },
+//       {
+//         id: 10,
+//         title: "Valorant",
+//         image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+//         diets: ["Genre 3", "Genre 4"]
+//       },
+//       {
+//           id: 11,
+//           title: "Pokemon Unite",
+//           image: "https://unite.pokemon.com/images/share-fb.jpg",
+//           diets: ["Genre 3", "Genre 4"]
+//       },
+//       {
+//           id: 12,
+//           title: "Pokemon Unite",
+//           image: "https://unite.pokemon.com/images/share-fb.jpg",
+//           diets: ["Genre 3", "Genre 4"]
+//       },
+//       {
+//         id: 13,
+//         title: "Dota 2",
+//         image: "https://img.redbull.com/images/c_fill,w_1200,h_600,g_auto,f_auto,q_auto/redbullcom/2015/02/15/1331705372408_2/dota-2",
+//         diets: ["Genre 1", "Genre 2"]
+//       },
+//       {
+//         id: 14,
+//         title: "Valorant",
+//         image: "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/03/30/15855893593327.jpg",
+//         diets: ["Genre 3", "Genre 4"]
+//       },
+//       {
+//           id: 15,
+//           title: "Pokemon Unite",
+//           image: "https://unite.pokemon.com/images/share-fb.jpg",
+//           diets: ["Genre 3", "Genre 4"]
+//       },
+//       {
+//           id: 16,
+//           title: "Pokemon Unite",
+//           image: "https://unite.pokemon.com/images/share-fb.jpg",
+//           diets: ["Genre 3", "Genre 4"]
+//       },
       
-  ]);
-  const currentRecipesAux = games.slice(indexOfFirstRecipe, indexOfLastRecipe);
+//   ]);
+//   const currentRecipesAux = games.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
 const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -271,12 +271,12 @@ return(
             <div className={style.wrapCards}>
                     <Paginated
                         recipesPerPage={recipesPerPage}
-                        allRecipes={games.length}
+                        allRecipes={allRecipes.length}
                         paginado={paginado}
                     />
                 <div className={style.gridContainer}>
                     <div className={style.recipesContainer}>
-                        {currentRecipesAux?.map((el) => {
+                        {currentRecipes?.map((el) => {
                                 return (
                                     <div>
                                         <Link to={'/home/' + el.id} className={style.links}>

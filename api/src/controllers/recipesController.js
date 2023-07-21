@@ -50,7 +50,6 @@ const getAllRecipes = async () => {
   }
 };
 
-
 module.exports = {
   getAllRecipes
 }

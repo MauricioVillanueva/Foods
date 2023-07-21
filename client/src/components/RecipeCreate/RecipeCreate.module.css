@@ -1,24 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 .container{
-    color: #000000;
-    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #B0EDD8;
+    padding-bottom: 55px;
 }
 .divButton{
     display: flex;
-    justify-content: left;
-    padding-top: 3vh;
-    padding-left: 3vh;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    padding: 0 55px;
+    height: 150px;
+}
+
+.buttonContainer{
+    width: auto;
+    height: auto;
 }
 .goBackButton{
     position: relative;
-    height: 50px;
-    width: 150px;
-    margin: 0 35px;
+    padding: 12px 15px;
     border-radius: 50px;
     border: none;
     outline: none;
-    background: #111;
+    background: #09814A;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
@@ -27,37 +37,39 @@
     cursor: pointer;
     transition: background 0.5s;
 }
-.goBackButton:first-child:hover{
-background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+
+.goBackButton:first-child:hover {
+    background: linear-gradient(90deg, #03a9f4, #00bfa5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+}
+
+.goBackButton:last-child:hover {
+background: linear-gradient(90deg, #00bfa5, #37d410, #fdd835, #00bfa5);
 background-size: 400%;
 }
-.goBackButton:last-child:hover{
-background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
-background-size: 400%;
-}
+
 .goBackButton:first-child:before,
 .goBackButton:last-child:before{
 content: '';
 position: absolute;
 background: inherit;
-top: -5px;
-right: -5px;
-bottom: -5px;
-left: -5px;
 border-radius: 50px;
 filter: blur(20px);
 opacity: 0;
 transition: opacity 0.5s;
 }
+
 .goBackButton:first-child:hover:before,
 .goBackButton:last-child:hover:before{
 opacity: 1;
 z-index: -1;
 }
+
 .goBackButton:hover{
 z-index: 1;
 animation: glow 8s linear infinite;
 }
+
 @keyframes glow {
 0%{
     background-position: 0%;
@@ -69,36 +81,46 @@ animation: glow 8s linear infinite;
 /*---------------------------------------------*/
 
 .bodyContainer{
-    min-height: 100vh;
+    height: 92vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center; 
 }
 
 .formContainer{
     position: relative;
-    max-width: 700px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: auto;
     background: #fff;
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.342);
 }
+
 .formContainer header{
     font-size: 1.5rem;
     color: #333;
     font-weight: 500;
     text-align: center;
 }
-.formContainer .formGame {
-    margin-top: 30px;
+
+
+.formRecipe{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
 }
+
 .errorMessage{
     text-align: left;
     color: #dc143c;
 }
 
-.formGame .inputBox, .formGame .descriptionWrapper {
+.inputBox,.descriptionWrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -110,8 +132,15 @@ animation: glow 8s linear infinite;
 .inputBox label, .descriptionWrapper label {
 color: #333;
 }
-
-.inputBox input{
+.inputsContainer{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 50px;
+}
+.inputBox .inputText{
     position: relative;
     height: 50px;
     width: auto;
@@ -122,6 +151,27 @@ color: #333;
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 0 15px;
+}
+
+.inputText:focus, .stepInput:focus, .summaryText:focus {
+	outline: none;
+    border-color: #09814A;
+}
+
+.stepInput{
+    position: relative;
+    height: 50px;
+    width: 400px;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+.stepsLabel{
+    margin-top: 20px;
 }
 .descriptionBody{
     height: 165px;
@@ -197,7 +247,7 @@ color: #333;
     margin: 15px 15px 10px 15px;
     width: 100px;
     height: 40px;
-    background-color:#4CAF50;
+    background-color:#09814A;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -209,25 +259,26 @@ color: #333;
 }
 
 .optionsCard:hover{
-    background-color: rgb(173, 26, 26);
-    animation: glow 1.4s linear infinite;
+    background-color: #d41515;
+    animation: glowed 1.4s linear infinite;
+    -webkit-animation: glowed 1.4s linear infinite;
 }
 
 @keyframes glowStart {
     0% {
-      background: #4CAF50;
+      background: #09814A;
     }
     25% {
-      background: #66BB6A;
+      background: #09814A;
     }
     100% {
-      background: #4CAF50;
+      background: #09814A;
     }
   }
 
-@keyframes glow {
+@keyframes glowed {
     0% {
-      box-shadow: 0 0 0 0 #dc143c;
+      box-shadow: 0 0 0 0 #09814A;
     }
     50% {
       box-shadow: 0 0 30px 0 #dc143c;
@@ -255,39 +306,47 @@ color: #333;
 
 }
 .submitButton {
-    border: 0;
-    justify-content: center;
+    cursor: pointer;
+    font-family: Helvetica, sans-serif;
+    letter-spacing: 1.5px;
+    border: none;
     bottom: 0;
-    left: 47%;
+    right: 0%;
     position: absolute;
     display: flex;
-    transform: translate(-50%,-50%);
-    width: 200px;
-    height: 60px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 50px;
     line-height: 60px;
     color: #fff;
-    font-size: 24px;
+    font-size: 15px;
+    font-weight:bold;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: sans-serif;
     box-sizing: border-box;
-    background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+    background: linear-gradient(90deg, #00bfa5, #37d410, #fdd835, #00bfa5);
     background-size: 400%;
     border-radius: 30px;
     z-index: 1; 
+    padding: 1px 15px;
+    transform: translate(-50%,-50%);
 }
+
 .submitButton:hover {
     animation: animate 8s linear infinite;
-   }
-   @keyframes animate {
+}
+
+@keyframes animate {
     0% {
-     background-position: 0%;
+        background-position: 0%;
     }
     100% {
-     background-position: 400%;
+        background-position: 400%;
     }
 }
+
 .submitButton:before {
     content: '';
     position: absolute;
@@ -296,13 +355,14 @@ color: #333;
     right: -5px;
     left: -5px;
     z-index: -1;
-    background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+    background: linear-gradient(90deg, #03a9f4, #00bfa5, #ffeb3b, #03a9f4);
     background-size: 400%;
     border-radius: 40px;
     filter: blur(20px);
     opacity: 0;
     transition: 0.5s;
 }
+
 .submitButton:hover:before {
     filter: blur(20px);
     opacity: 1;
@@ -312,6 +372,74 @@ color: #333;
 .flexBox{
     display: flex;
     width: 100%;
+}
+.stepsDiv{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.buttonStyle {
+    margin-top: 8px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-size: large;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.buttonStyle:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.buttonStyle:active {
+    color: #000
+}
+
+.buttonStyle:active:after {
+    background: transparent;
+}
+
+.buttonStyle:hover:before {
+    opacity: 1;
+}
+
+.buttonStyle:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 

@@ -1,5 +1,5 @@
 .container{ 
-    background-color: #FFFFFF;
+    background-color: #AFECD6;
 }
 .divButton{
     display: flex;
@@ -20,7 +20,7 @@
     border-radius: 50px;
     border: none;
     outline: none;
-    background: #E37C00;
+    background: #09814A;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
@@ -29,14 +29,17 @@
     cursor: pointer;
     transition: background 0.5s;
 }
-.rgbButton:first-child:hover{
-background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+
+.rgbButton:first-child:hover {
+    background: linear-gradient(90deg, #03a9f4, #00bfa5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+}
+
+.rgbButton:last-child:hover {
+background: linear-gradient(90deg, #00bfa5, #37d410, #fdd835, #00bfa5);
 background-size: 400%;
 }
-.rgbButton:last-child:hover{
-background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
-background-size: 400%;
-}
+
 .rgbButton:first-child:before,
 .rgbButton:last-child:before{
 content: '';
@@ -53,10 +56,12 @@ transition: opacity 0.5s;
 opacity: 1;
 z-index: -1;
 }
+
 .rgbButton:hover{
 z-index: 1;
 animation: glow 8s linear infinite;
 }
+
 @keyframes glow {
 0%{
     background-position: 0%;
@@ -80,7 +85,7 @@ animation: glow 8s linear infinite;
     margin-left: 55px;
 }
 .wrapCards{
-    width: 82%;
+    width: 100%;
 }
 .filtersDiv{ 
     width: 100%;
@@ -99,7 +104,7 @@ animation: glow 8s linear infinite;
     width: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 45px;
+    grid-row-gap: 25px;
     grid-column-gap: 75px;
 }
 
@@ -118,12 +123,12 @@ animation: glow 8s linear infinite;
     font-weight: 600;
     transition: all 150ms ease;
     margin-bottom: 10px;
-    color: #E37C00;
+    color: #16a567;
     appearance: none;
     outline: none;
-    background-color: #FFEDDB;
+    background-color: #F2F8F6;
     background-image:
-    url('https://uploads-ssl.webflow.com/620ff835b6ec5ca49847eaf6/6217d9d931a74e3b88d664b9_down-arrow.png');
+    url('https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/08-512.png');
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
     background-size: 1em auto, 100%;
@@ -133,7 +138,7 @@ animation: glow 8s linear infinite;
     -o-transition: all 150ms ease;
 }
 .titleCss{
-    color: #E37C00;
+    color: #09814A;
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
@@ -143,7 +148,7 @@ animation: glow 8s linear infinite;
 
 .titleInfo{
     margin: 8px 0 5px 0;
-    color: #E37C00;
+    color: #09814A;
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
@@ -158,21 +163,22 @@ animation: glow 8s linear infinite;
     border-radius: 50px;
     border: none;
     outline: none;
-    background: #E37C00;
+    background: #09814A;
     color: #fff;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
     transition: background 0.5s;
 }
 .allButton:first-child:hover{
-background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-background-size: 400%;
+    background: linear-gradient(90deg, #03a9f4, #00bfa5, #ffeb3b, #03a9f4);
+    background-size: 400%;
 }
 .allButton:last-child:hover{
-background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
-background-size: 400%;
+    background: linear-gradient(90deg, #00bfa5, #37d410, #fdd835, #00bfa5);
+    background-size: 400%;
 }
 .allButton:first-child:before,
 .allButton:last-child:before{

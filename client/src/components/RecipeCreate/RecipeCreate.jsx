@@ -144,14 +144,18 @@ export default function RecipeCreate() {
   return (
     <div className={style.container}>
         <div className={style.divButton}>
-          <Link to='/home' style={{ textDecoration: 'none' }}>
-            <button className={style.goBackButton}>Go Back</button>
-          </Link>
+          <div className={style.buttonContainer}>
+            <Link to='/home' style={{ textDecoration: 'none' }}>
+              <button className={style.goBackButton}>Go Back</button>
+            </Link>
+          </div>
         </div>
       <div className={style.bodyContainer}>
         <section className={style.formContainer}>
           <header>Add a new recipe!</header>
-          <form onSubmit={(event) => handleSubmit(event)} className={style.formGame}>
+          <form onSubmit={(event) => handleSubmit(event)} className={style.formRecipe}>
+          <div className={style.inputsContainer}>
+          <div className={style.inputBox}>
             <div className={style.inputBox}>
               <label>Name</label>
               <input
@@ -161,6 +165,7 @@ export default function RecipeCreate() {
                 id='title'
                 placeholder='Enter a new recipe...'
                 onChange={(event) => handleChange(event)}
+                className={style.inputText}
               />
               {errors.title && <span className={style.errorMessage}>{errors.title}</span>}
             </div>
@@ -174,6 +179,7 @@ export default function RecipeCreate() {
                     placeholder='Enter a summary...'
                     onChange={(event) => handleChange(event)}
                     maxLength={maxDescriptionLength}
+                    className={style.summaryText}
                 />
                 <span className={style.descriptionLength}>
                     {`${descriptionLength}/${maxDescriptionLength}`}
@@ -184,33 +190,6 @@ export default function RecipeCreate() {
                 </div>
             </div>
             <div className={style.inputBox}>
-              <label>Steps</label>
-              {stepList.map((singleStep, index) => (
-                <div key={index}>
-                  <input 
-                  type='text' 
-                  name='step'
-                  placeholder='Enter a new step...' 
-                  value={singleStep.step}
-                  onChange={(event) => handleStepChange(event, index)}
-                  />
-                  {stepList.length - 1 === index && stepList.length < 4 && 
-                  (
-                    <button type='button'
-                      onClick={handleStepAdd}
-                    >+</button>
-                  )}
-                  {stepList.length > 1 && 
-                  (
-                    <button type='button'
-                      onClick={() => handleStepRemove(index)}
-                    >x</button>
-                  )}
-                </div>
-              ))}
-              {/* {errors.title && <span className={style.errorMessage}>{errors.title}</span>} */}
-            </div>
-            <div className={style.inputBox}>
               <label>Image</label>
               <input
                 type='text'
@@ -218,6 +197,7 @@ export default function RecipeCreate() {
                 name='image'
                 placeholder='Enter an URL for image'
                 onChange={(event) => handleChange(event)}
+                className={style.inputText}
               />
               {errors.image && <span className={style.errorMessage}>{errors.image}</span>}
             </div>
@@ -232,15 +212,12 @@ export default function RecipeCreate() {
                 value={input.healthScore}
                 name='healthScore'
                 onChange={(event) => handleChange(event)}
+                className={style.inputText}
               />
             </div>
             <div className={style.selectBox}>
               <select onChange={(event) => handleDiet(event)}>
                 <option hidden value="visualize">Select Diets...</option>
-                <option value="gluten free">gluten free</option>
-                <option value="paleolithic">paleolithic</option>
-                <option value="primal">primal</option>
-                <option value="vegetarian">vegetarian</option>
                 {diets.map((diet) => (
                   <option value={diet.name} key={diet.id}>{diet.name}</option>
                 ))}
@@ -256,9 +233,40 @@ export default function RecipeCreate() {
                 </div>
               )}
             </div>
-            <div className={style.buttonContainer}>
+          </div>
+          <div className={style.inputBox}>
+              <label className={style.stepsLabel}>Steps</label>
+              {stepList.map((singleStep, index) => (
+                <div key={index} className={style.stepsDiv}>
+                  <input 
+                  type='text' 
+                  name='step'
+                  placeholder='Enter a new step...' 
+                  value={singleStep.step}
+                  onChange={(event) => handleStepChange(event, index)}
+                  className={style.stepInput}
+                  />
+                  {stepList.length > 1 && 
+                  (
+                    <button type='button'
+                      onClick={() => handleStepRemove(index)}
+                      className={style.buttonStyle}
+                    >-</button>
+                  )}
+                  {stepList.length - 1 === index && stepList.length < 10 && 
+                  (
+                    <button type='button'
+                      onClick={handleStepAdd}
+                      className={style.buttonStyle}
+                    >+</button>
+                  )}
+                </div>
+              ))}
+          </div>
+          </div>
+          <div className={style.buttonContainer}>
               <button type='submit' className={style.submitButton}>Create Recipe</button>
-            </div>
+          </div>
           </form>
         </section>
       </div>

@@ -5,8 +5,8 @@
 	margin-bottom: 15px;
 }
 .inputCss {
-	background: #FFEDDB;
-	color: #E37C00;
+	background: #F2F8F6;
+	color: #09814A;
 	border: none;
 	border-radius: 5px 0 0 5px;
 	display: block;
@@ -20,7 +20,7 @@
 	-o-border-radius: 5px 0 0 5px;
 }
 .inputCss::placeholder {
-	color: #E37C00;
+	color: #09814A;
 	font-family: arial, sans-serif;
 	font-size: 13px;
 	font-weight: 400;
@@ -29,13 +29,13 @@
 
 .inputCss:focus {
 	animation: glow 800ms ease-out infinite alternate;
-	background: #FFEDDB;
-	color: #E37C00;
+	background: #F2F8F6;
+	color: #09814A;
 	outline: none;
 }
 
 .searchButton {
-	background: #E37C00;
+	background: #09814A;
 	box-sizing: border-box;
 	border: none;
 	border-radius: 0 5px 5px 0;
@@ -58,7 +58,7 @@
 .searchButton:hover,
 .searchButton:focus {
 	animation: glow 800ms ease-out infinite alternate;
-	background: #E37C00;
+	background: #09814A;
 	color: #FFEDDB;
 	outline: none;
 }
@@ -70,12 +70,12 @@
 
 @keyframes glow {
     0% {
-		border-color: #E37C00;
-		box-shadow: 0 0 5px orange, inset 0 0 5px rgba(252, 177, 65, 0.87);
+		border-color: #09814A;
+		box-shadow: 0 0 5px #09814A, inset 0 0 5px rgba(35, 189, 56, 0.87);
 	  }
 	  100% {
-		border-color: #E37C00;
-		box-shadow: 0 0 20px orange, inset 0 0 10px rgba(252, 177, 65, 0.87);
+		border-color: #09814A;
+		box-shadow: 0 0 20px #09814A, inset 0 0 10px rgba(57, 177, 33, 0.87);
 	  }
 }
 

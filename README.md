@@ -136,7 +136,7 @@ Deberás crear dos modelos para tu base de datos. Una será para las recetas y l
 
 <br />
 
-### **🖱 BACK-END**
+### **🖱 BACK-END** ✅✅✅
 
 Para esta parte deberás construir un servidor utilizando **NodeJS** y **Express**. Tendrás que conectarlo con tu base de datos mediante **Sequelize**.
 
@@ -156,7 +156,7 @@ Tu servidor deberá contar con las siguientes rutas:
 -  Si no existe la receta, debe mostrar un mensaje adecuado.
 -  Debe buscar tanto las de la API como las de la base de datos.
 
-#### **📍 POST | /recipes**
+#### **📍 POST | /recipes** ✅
 
 -  Esta ruta recibirá todos los datos necesarios para crear una nueva receta y relacionarla con los tipos de dieta solicitados.
 -  Toda la información debe ser recibida por body.
@@ -178,14 +178,14 @@ Tu servidor deberá contar con las siguientes rutas:
 
 Se debe desarrollar una aplicación utilizando **React** y **Redux** que contenga las siguientes vistas:
 
-**📍 LANDING PAGE |** deberás crear una página de inicio o bienvenida con:
+**📍 LANDING PAGE |** deberás crear una página de inicio o bienvenida con: ✅✅
 
 -  Alguna imagen de fondo representativa al proyecto.
 -  Botón para ingresar a la **`home page`**.
 
 <br />
 
-**📍 HOME PAGE |** la página principal de tu SPA debe contener:
+**📍 HOME PAGE |** la página principal de tu SPA debe contener: ✅✅
 
 -  SearchBar: un input de búsqueda para encontrar recetas por nombre.
 -  Sector en el que se vea un listado de cards con las recetas. Al iniciar deberá cargar los primeros resultados obtenidos desde la ruta **`GET /recipes`** y deberá mostrar su:
@@ -209,13 +209,13 @@ Se debe desarrollar una aplicación utilizando **React** y **Redux** que conteng
 -  Nombre. ✅
 -  Resumen del plato. ✅
 -  Nivel de comida saludable (health score). ✅
--  Paso a paso.
+-  Paso a paso.✅
 -  Imagen. ✅
 -  Tipos de dieta. ✅
 
 <br />
 
-**📍 FORM PAGE |**: en esta vista se encontrará el formulario para crear una nueva receta.
+**📍 FORM PAGE |**: en esta vista se encontrará el formulario para crear una nueva receta. ✅✅
 
 Este formulario debe ser **controlado completamente con JavaScritp**. No se pueden utilizar validaciones HTML, ni utilizar librerías especiales para esto. Debe contar con los siguientes campos:
 
