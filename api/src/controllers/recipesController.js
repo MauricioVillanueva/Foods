@@ -50,6 +50,36 @@ const getAllRecipes = async () => {
   }
 };
 
+const post = async (req, res) => {
+  try {
+    let { title, image, summary, healthScore, steps, diets, createInDb } = req.body;
+
+    // if (!title || !image || !summary || !healthScore || !steps || !diets || createInDb === undefined) {
+    //   return res.status(400).json({ error: "Missing required fields" });
+    // }
+
+    let newRecipe = await Recipe.create({
+      title,
+      image,
+      summary,
+      healthScore,
+      steps,
+      createInDb,
+    });
+
+    let dietDB = await Diet.findAll({
+      where: { name: diets },
+    });
+
+    await newRecipe.addDiet(dietDB);
+    res.send("Recipe is created");
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error.message })
+  }
+};
+
 module.exports = {
-  getAllRecipes
+  getAllRecipes,
+  post
 }

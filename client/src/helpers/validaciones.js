@@ -1,8 +1,16 @@
 export function validateTitle(name) {
-    if (name.trim() === "") {
-      return "Title is required";
-    }
-    return "";
+  if (name.trim() === "") {
+    return "Title is required";
+  }
+
+  // Patrón de expresión regular que busca solo letras y espacios
+  const pattern = /^[a-zA-Z\s]+$/;
+  
+  if (!pattern.test(name)) {
+    return "Title must contain only letters and spaces";
+  }
+
+  return "";
 }
 
 export function validateSummary(description) {
@@ -27,10 +35,13 @@ export function validateDiets(diets) {
 }
 
 export function validateHealthScore(healthScore) {
-    if (healthScore === 0) {
-      return "The rating cannot be zero";
-    }
-    return "";
+  const floatValue = parseFloat(healthScore);
+
+  if (floatValue < 1 || floatValue > 100) {
+    return "The rating must be between 1 and 100";
+  }
+
+  return "";
 }
 
 export function validateImageURL(imageURL) {

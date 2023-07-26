@@ -22,7 +22,7 @@ export default function RecipeCreate() {
     image: "",
     healthScore: 1,
     steps:[],
-    diets: []
+    diets: new Set()
   });
 
   const [errors, setErrors] = useState({
@@ -37,45 +37,74 @@ export default function RecipeCreate() {
   const [descriptionLength, setDescriptionLength] = useState(0);
   const maxDescriptionLength = 255;
 
+  const handleTitleChange = (event) => {
+    const { name, value } = event.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      title: validateTitle(value)
+    }));
+  };
+
+  const handleSummaryChange = (event) => {
+    const { name, value } = event.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      summary: validateSummary(value)
+    }));
+  };
+
+  const handleImageChange = (event) => {
+    const { name, value } = event.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      image: validateImageURL(value)
+    }));
+  };
+
+  const handleHealthScoreChange = (event) => {
+    const { name, value } = event.target;
+    const floatValue = parseFloat(value);
+  
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: isNaN(floatValue) ? 0 : floatValue
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      healthScore: validateHealthScore(floatValue)
+    }));
+  };
+
+  const handleDiet = (event) => {
+    const newDiet = event.target.value;
+
+    setInput((prevInput) => ({
+      ...prevInput,
+      diets: prevInput.diets.add(newDiet)
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      diets: validateDiets([...input.diets, newDiet])
+    }));
+  };
+
   function handleStepChange (event, index) {
     const { name , value } = event.target;
     const list = [...stepList];
     list[index][name] = value;
     setStepList(list);
-  }
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    if (name === "healthScore") {
-      const floatValue = parseInt(value);
-
-      if (!isNaN(floatValue)) {
-        setInput({
-          ...input,
-          [name]: floatValue,
-        });
-        return;
-      }
-    }
-
-    if (name === "summary") {
-      setDescriptionLength(value.length);
-    }
-
-    setInput({
-      ...input,
-      [name]: value,
-    });
-  }
-
-  function handleDiet(event) {
-    const newDiet = event.target.value;
-
-    setInput({
-      ...input,
-      diets: [...input.diets, newDiet]
-    });
   }
 
   function handleSubmit(event) {
@@ -120,10 +149,13 @@ export default function RecipeCreate() {
   }
 
   function handleDeleteDiet(element) {
-    setInput({
-      ...input,
-      diets: input.diets.filter(diet => diet !== element)
-    });
+    const newDiets = new Set(input.diets);
+    newDiets.delete(element);
+  
+    setInput((prevInput) => ({
+      ...prevInput,
+      diets: newDiets
+    }));
   }
 
   function handleStepAdd() {
@@ -163,7 +195,7 @@ export default function RecipeCreate() {
                 name='title'
                 id='title'
                 placeholder='Enter a new recipe...'
-                onChange={(event) => handleChange(event)}
+                onChange={handleTitleChange}
                 className={style.inputText}
               />
               {errors.title && <span className={style.errorMessage}>{errors.title}</span>}
@@ -176,7 +208,7 @@ export default function RecipeCreate() {
                     name='summary'
                     id='summary'
                     placeholder='Enter a summary...'
-                    onChange={(event) => handleChange(event)}
+                    onChange={handleSummaryChange}
                     maxLength={maxDescriptionLength}
                     className={style.summaryText}
                 />
@@ -195,7 +227,7 @@ export default function RecipeCreate() {
                 value={input.image}
                 name='image'
                 placeholder='Enter an URL for image'
-                onChange={(event) => handleChange(event)}
+                onChange={handleImageChange}
                 className={style.inputText}
               />
               {errors.image && <span className={style.errorMessage}>{errors.image}</span>}
@@ -210,7 +242,7 @@ export default function RecipeCreate() {
                 max="100"
                 value={input.healthScore}
                 name='healthScore'
-                onChange={(event) => handleChange(event)}
+                onChange={handleHealthScoreChange}
                 className={style.inputText}
               />
             </div>
@@ -226,9 +258,9 @@ export default function RecipeCreate() {
                {errors.diets && <span className={style.errorMessage}>{errors.diets}</span>}
             </div>
             <div className={style.optionsContainer}>
-              {input.diets.map(el =>
-                <div className={style.optionsCard} onClick={() => handleDeleteDiet(el)}>
-                  <button type='button' className={style.optionsBtn}>{el.name}</button>
+                {Array.from(input.diets).map(diet =>
+                <div className={style.optionsCard} onClick={() => handleDeleteDiet(diet)}>
+                  <button type='button' className={style.optionsBtn}>{diet}</button>
                 </div>
               )}
             </div>
@@ -260,7 +292,10 @@ export default function RecipeCreate() {
                     >+</button>
                   )}
                 </div>
-              ))}
+              ))}           
+          </div>
+          <div className={style.flexBox}>
+                    {errors.steps && <span className={style.errorMessage}>{errors.steps}</span>}
           </div>
           </div>
           <div className={style.buttonContainer}>

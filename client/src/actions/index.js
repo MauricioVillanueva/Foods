@@ -37,6 +37,7 @@ export function getDetail(id){
     };
 };
 
+
 export function postRecipe(payload){
     return async function(){
         console.log(payload);

@@ -1,7 +1,7 @@
 const initialState = {
+    diets:[],
     recipes : [],
     allRecipes : [],
-    diets:[],
     steps:[],
     detail:[]
 }
@@ -40,11 +40,23 @@ function rootReducer (state = initialState, action){
             };
         case 'FILTER_BY_DIETS':
             const selectedDiet = action.payload;
-            const filterDietsRecipes = state.allRecipes;
-            const dietFilter = action.payload === 'All' ? state.allRecipes : filterDietsRecipes.filter(recipe => recipe.diets.includes(action.payload));
-            return{
+            
+            const allRecipes = state.allRecipes;
+            
+            const filteredRecipes = allRecipes.filter(recipe => {
+                if (Array.isArray(recipe.diets)) {
+                    if (recipe.diets.every(diet => typeof diet === 'object' && diet.name)) {
+                        return recipe.diets.some(diet => diet.name === selectedDiet);
+                    } else if (recipe.diets.every(diet => typeof diet === 'string')) {
+                        return recipe.diets.includes(selectedDiet);
+                    }
+                }
+                return false;
+            });
+            
+            return {
                 ...state,
-                recipes: dietFilter
+                recipes: filteredRecipes,
             };
 
         case 'FILTER_CREATED':
@@ -90,7 +102,7 @@ function rootReducer (state = initialState, action){
             });
             return {
                 ...state,
-                allRecipes: orderHealthScoreRecipes,
+                recipes: orderHealthScoreRecipes,
             };
         default:
             return state;

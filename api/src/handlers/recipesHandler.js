@@ -1,5 +1,6 @@
 const { 
   getAllRecipes,
+  post
  } = require("../controllers/recipesController");
 const { Recipe, Diet } = require("../db.js");
 
@@ -38,34 +39,44 @@ const recipesHandlerById = async (req, res) => {
       res.status(400).json('Recipe not found.');
     }
 };
-const createRecipesHandler = async (req,res) => {
-  try {
-      const {
-        title, 
-        image, 
-        summary, 
-        healthScore, 
-        steps, 
-        diets, 
-        createInDb
-      } = req.body;
 
-      let recipe = await Recipe.create({
-        title, 
-        image, 
-        summary, 
-        healthScore, 
-        steps, 
-        createInDb});
+// const createRecipesHandler = async (req,res) => {
+//   try {
+//       const {
+//         title, 
+//         image, 
+//         summary, 
+//         healthScore, 
+//         steps, 
+//         diets, 
+//         createInDb
+//       } = req.body;
 
-      let dietDB = await Diet.findAll({
-            where: { name: diets },
-          });
+//       let recipe = await Recipe.create({
+//         title, 
+//         image, 
+//         summary, 
+//         healthScore, 
+//         steps, 
+//         createInDb});
+
+//       let dietDB = await Diet.findAll({
+//             where: { name: diets },
+//           });
           
-      await recipe.addDiets(dietDB);
-      return res.status(200).send('Recipe created successfully.');
+//       await recipe.addDiets(dietDB);
+//       return res.status(200).send('Recipe created successfully.');
+//   } catch (error) {
+//       res.status(400).json({ error: error.message })
+//   }
+// };
+
+const createRecipesHandler = async (req, res) => {
+  try {
+    await post(req, res);
   } catch (error) {
-      res.status(400).json({ error: error.message })
+    console.log(error);
+    res.status(500).json({ error: "Error creating recipe" });
   }
 };
 
