@@ -70,9 +70,8 @@ export default function RecipeCreate() {
   }
 
   function handleDiet(event) {
-    const newDiet = {
-      name: event.target.value
-    };
+    const newDiet = event.target.value;
+
     setInput({
       ...input,
       diets: [...input.diets, newDiet]

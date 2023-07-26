@@ -56,11 +56,12 @@ const createRecipesHandler = async (req,res) => {
         summary, 
         healthScore, 
         steps, 
-        diets, 
         createInDb});
+
       let dietDB = await Diet.findAll({
             where: { name: diets },
           });
+          
       await recipe.addDiets(dietDB);
       return res.status(200).send('Recipe created successfully.');
   } catch (error) {
